@@ -7,9 +7,7 @@ import xml.dom.minidom
 netconf_filter = """
 <filter>
     <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
-        <interface>
-            <name>GigabitEthernet2</name>
-        </interface>
+        <interface></interface>
     </interfaces>
 </filter>"""
 
@@ -24,15 +22,7 @@ with manager.connect(
     netconf_reply = m.get_config(source = 'running', filter = netconf_filter)
     
     # print the raw XML in a "pretty" fashion
-    #print(xml.dom.minidom.parseString(netconf_reply.xml).toprettyxml())
-
-    # Parse the returned XML to an Ordered Dictionary
-    
-    netconf_data = xmltodict.parse(netconf_reply.xml)["rpc-reply"]["data"]
-
-    # Getting the name of the interface
-    interface = netconf_data["interfaces"]["interface"]["name"]
-    print(interface)
+    print(xml.dom.minidom.parseString(netconf_reply.xml).toprettyxml())
     
     
     

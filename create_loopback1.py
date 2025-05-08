@@ -7,7 +7,7 @@ netconf_interface_template = """
     <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
         <interface>
             <name>Loopback0</name>
-            <description>Created via NETCONF</description>
+            <description>Created with NETCONF</description>
             <type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">
                 ianaift:softwareLoopback
             </type>
